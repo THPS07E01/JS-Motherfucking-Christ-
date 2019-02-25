@@ -204,3 +204,9 @@ function freeTheDiv() {
 };
 
 theLostDiv.addEventListener('click', freeTheDiv)
+
+console.log('_/_/_/_/   _/_/_/_/   _/_/_/_/');
+console.log('_/         _/         _/');
+console.log('_/_/_/_/   _/_/_/     _/_/_/');
+console.log('      _/   _/         _/');
+console.log('_/_/_/_/   _/         _/');
