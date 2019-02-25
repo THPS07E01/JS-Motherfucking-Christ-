@@ -130,3 +130,77 @@
   }}
 
   logoName.addEventListener("focus", dressUp) // Évènement qui se déclenche suite à la sélection du logo
+
+// =============================================================================
+// ZONE SECRETE !! *************************************************************
+// =============================================================================
+// --------------------- etape 1 -----------------------------------------------
+let jsImgElt = document.getElementsByClassName('card-img-top')[2]
+let secretUnlocked = false
+
+function unlockTheSecret(e) {
+  if (secretUnlocked === false) {
+    e.preventDefault();
+    let secretSoundElt = document.createElement("audio");
+    secretSoundElt.src = "assets/the-legend-of-zelda-ocarina-of-time-secret-sound.mp3";
+    secretSoundElt.autoplay = "true";
+    document.body.appendChild(secretSoundElt);
+    console.log('========================================');
+    console.log("       Quête débloquée --- (1/3)");
+    console.log("Retrouver le trésor perdu sur cette page");
+    console.log('========================================');
+    secretUnlocked = true
+  }
+};
+
+jsImgElt.addEventListener('mouseenter', unlockTheSecret)
+
+// --------------------- etape 2 -----------------------------------------------
+let rubyCardElt = document.getElementsByClassName('card')[3]
+let rubyImgElt = rubyCardElt.getElementsByClassName('card-img-top')[0]
+let rubyTextElt = rubyCardElt.getElementsByClassName('card-text')[0]
+let rubyEditElt = rubyCardElt.getElementsByClassName('btn-outline-secondary')[0]
+let keyFound = false
+
+function findTheKey() {
+  if (secretUnlocked === true && keyFound === false) {
+    rubyImgElt.src = 'assets/treasure_key.jpg'
+    rubyTextElt.innerHTML = "<p>Bravo tu as trouvé la clé !<br>Ca me rappelle qu'il n'y a pas si longtemps une div était coincée au nord.<br> Je me demande bien si elle y est toujours...</p>"
+    rubyTextElt.style.color = 'darkblue'
+    let keySoundElt = document.createElement("audio");
+    keySoundElt.src = "http://s1download-universal-soundbank.com/mp3/sounds/1562.mp3";
+    keySoundElt.autoplay = "true";
+    document.body.appendChild(keySoundElt);
+    console.log('========================================');
+    console.log("    La quête se poursuit  --- (2/3)");
+    console.log("    Mais que faire de cette clé...");
+    console.log('========================================');
+    keyFound = true
+  }
+};
+
+rubyEditElt.addEventListener('click', findTheKey)
+
+// --------------------- etape 3 -----------------------------------------------
+let theLostDiv = document.getElementsByClassName('col-sm-8 col-md-7 py-4')[0]
+let divFree = false
+
+function freeTheDiv() {
+  if (keyFound === true && divFree === false) {
+    let pDivPrincessElt = document.createElement('p')
+    pDivPrincessElt.style.color = 'grey'
+    pDivPrincessElt.innerHTML = "Princesse Div dit : <a href='assets/secret.html' target='_blank'>Merci de m'avoir libérée</a>"
+    theLostDiv.appendChild(pDivPrincessElt)
+    let divSoundElt = document.createElement("audio");
+    divSoundElt.src = "assets/ff-vii-victory-theme.mp3";
+    divSoundElt.autoplay = "true";
+    document.body.appendChild(divSoundElt);
+    console.log('========================================');
+    console.log("      Quête términée  --- (3/3)");
+    console.log("    La Princesse Div a été libérée");
+    console.log('========================================');
+    divFree = true
+  }
+};
+
+theLostDiv.addEventListener('click', freeTheDiv)
