@@ -168,7 +168,7 @@ function findTheKey() {
     rubyTextElt.innerHTML = "<p>Bravo tu as trouvé la clé !<br>Ca me rappelle qu'il n'y a pas si longtemps une div était coincée au nord.<br> Je me demande bien si elle y est toujours...</p>"
     rubyTextElt.style.color = 'darkblue'
     let keySoundElt = document.createElement("audio");
-    keySoundElt.src = "http://s1download-universal-soundbank.com/mp3/sounds/1562.mp3";
+    keySoundElt.src = "key.mp3";
     keySoundElt.autoplay = "true";
     document.body.appendChild(keySoundElt);
     console.log('========================================');
